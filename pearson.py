@@ -28,6 +28,10 @@ data['incomeperperson'] = pandas.to_numeric(data['incomeperperson']);
 data['hivrate']=data['hivrate'].replace(' ', numpy.nan)
 data['hivrate'] = pandas.to_numeric(data['hivrate']);
 
+
+data['co2emissions']=data['co2emissions'].replace(' ', numpy.nan)
+data['co2emissions'] = pandas.to_numeric(data['co2emissions']);
+
 data['lifeexpectancy']=data['lifeexpectancy'].replace(' ', numpy.nan)
 data['lifeexpectancy'] = pandas.to_numeric(data['lifeexpectancy']);
 
@@ -50,13 +54,16 @@ plt.xlabel('HIV Rate')
 plt.ylabel('Life Expectancy')
 plt.title('Scatterplot for the Association Between HIV Rate and Life Expectancy')
 
+
+scat1 = seaborn.regplot(x="co2emissions", y="lifeexpectancy", fit_reg=True, data=data)
+plt.xlabel('co2emissions')
+plt.ylabel('Life Expectancy')
+plt.title('Scatterplot for the Association Between co2emissions and Life Expectancy')
+
 data_clean=data.dropna()
 
 print ('association between HIV rate and lifeexpectancy')
 print (scipy.stats.pearsonr(data_clean['hivrate'], data_clean['lifeexpectancy']))
 
-
-"""
-print ('association between incomeperperson and internetuserate')
-print (scipy.stats.pearsonr(data_clean['incomeperperson'], data_clean['internetuserate']))
-"""
+print ('association between co2emissions and lifeexpectancy')
+print (scipy.stats.pearsonr(data_clean['co2emissions'], data_clean['lifeexpectancy']))

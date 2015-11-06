@@ -12,7 +12,7 @@ After run this script show results like this:
 
 For the association between HIV rate and life expectancy, the correlation coefficient is approximately -0.5. We can see that while the HIV Rate increases the life expectancy decreases
 
-
+For the association between co2 emissions and life expectancy, the correlation coefficient is approximately 0.1. We can see that corelation is nearly null
 
 
 
